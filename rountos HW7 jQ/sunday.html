@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    </style>
+</head> 
+<body> 
+
+    <h2 style="text-align: center">A page that displays "It's Sunday" in green text when it is, and It's not Sunday... in blue text when it's not.</h2>
+
+    <h2 id="IsItSunday?"style="text-align: center">default text</h2>
+
+
+</body>
+
+
+<script>
+
+
+    $(document).ready(function() {
+        var today = new Date();
+        var day = today.getDay();           //From Jq documentation: The getDay() method returns the day of the week expressed as an integer from 0 (Sunday) to 6 (Saturday).
+
+
+        if (day === 0) { 
+            document.getElementById("IsItSunday?").textContent="It's Sunday!"
+            document.getElementById("IsItSunday?").style.color="green"
+        }
+
+        else{ 
+            document.getElementById("IsItSunday?").textContent="It's not Sunday..."
+            document.getElementById("IsItSunday?").style.color="blue"
+        }
+
+    })
+
+
+
+
+
+
+</script>
+
+
+</html>

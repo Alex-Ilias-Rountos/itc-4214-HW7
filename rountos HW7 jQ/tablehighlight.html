@@ -1,0 +1,106 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { color: red; }
+    </style>
+</head> 
+<body> 
+
+    <h2 style="text-align: center">A page that highlingts a different row of the table based on two buttons.</h2>
+
+    <div class="wrapper" style="text-align: center">
+        <table style="border: 1px solid black; margin-left: auto; margin-right: auto;">
+            <tr id="column names"> 
+                <th>First Name</th> 
+                <th>Last Name</th> 
+                <th>Email</th>
+                <th>Phone</th> 
+                <th>Office</th> 
+            </tr>
+
+    
+            <tr id="row1"> 
+                <td>John</td>
+                <td>Smith</td>
+                <td>jsmith@sar.com</td> 
+                <td>+30 210 1234567</td> 
+                <td>PN 514</td> 
+                
+            </tr> 
+            <tr id="row2">  
+                <td>Maria</td>
+                <td>Carras</td>
+                <td>mcarras@jsu.edu</td>
+                <td>+30 210 7654321</td>
+                <td>PM 413</td>
+            </tr>
+
+
+            <tr id="row3"> 
+                <td>Helen</td>
+                <td>Antypas</td>
+                <td>hantypas@bdg.com</td> 
+                <td>+30 2310 654321</td> 
+                <td>PK 614</td> 
+
+            </tr> 
+            <tr id="row4">  
+                <td>Afroditi</td>
+                <td>Makri</td>
+                <td>amakri@hughes.edu</td>
+                <td>+30 2310 123456</td>
+                <td>PJ 717</td>
+            </tr>
+
+    </table> 
+
+    <button id="next">Next</button>
+    <button id="prev">Previous</button>
+
+    </div>
+
+
+
+    <script>
+            $(document).ready(function() {
+                let rownum = 0;                 //so that no row is highlighted at the start
+
+                function updateRows() {
+                    $('tr').removeClass('highlight');
+                    $(`#row${rownum}`).addClass('highlight');       //will this throw an error if it tries to highlight an id rownum0 that doesn't exist?
+                                                                    //apparently not so we can allow for the variable to go +- 1 for nothing highlighted.
+                }
+
+                $('#next').click(function() {
+                    if (rownum < 5) {
+                        rownum++;
+                        updateRows();
+                    }
+                });
+                
+                $('#prev').click(function() {
+                    if (rownum > 0) {
+                        rownum--;
+                        updateRows();
+                    }
+                });
+
+
+            })
+
+    </script>
+
+
+
+
+
+
+
+
+</body> 
+</html> 

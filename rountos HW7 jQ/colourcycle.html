@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+    <body>
+
+        <h2 style="text-align: center">A page that displays Hello World! with changing colours every second.</h2>
+
+        <h2 id="targettext" style="text-align: center">Hello World!</h2>
+
+    </body>
+
+
+    <script>
+        $(document).ready(function () {                         //autoruns when the page DOM is ready and its safe to manipulate the page
+            let colors = ["black", "blue", "green"];            //this is jQ not js so we can use $ this time
+            let index = 0;
+
+            setInterval(function () {
+                $("#targettext").css("color", colors[index]);
+                index = (index + 1) % colors.length;           //length = 3 so once index 2 loops this will go to 3 mod 3 = 0 to start again
+            }, 1000);                                          //the delay in ms per loop
+        });
+    </script>
+
+</html>
+
+
